@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "500196190092",
+    "firebase_url": "https://fir-authentication-fb1c0-default-rtdb.firebaseio.com",
+    "project_id": "fir-authentication-fb1c0",
+    "storage_bucket": "fir-authentication-fb1c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500196190092:android:4f63ce57a960d0712fd8a9",
+        "android_client_info": {
+          "package_name": "com.example.expenseexplorer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5m4p8JLaNVmOWzT5HL0JmH76ErEDhvN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500196190092:android:edebe82b452784c12fd8a9",
+        "android_client_info": {
+          "package_name": "com.example.firebaseauthentication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5m4p8JLaNVmOWzT5HL0JmH76ErEDhvN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
