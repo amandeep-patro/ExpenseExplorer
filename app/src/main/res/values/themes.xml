@@ -3,13 +3,13 @@
     <style name="Base.Theme.ExpenseExplorer" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimary">@color/logo_background</item>
     </style>
 
     <style name="Theme.ExpenseExplorer" parent="Base.Theme.ExpenseExplorer" />
 
     <style name="App.CustomIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">@color/orangeDark</item>
+        <item name="android:color">@color/logo_background</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/lavender</item>
         <item name="colorPrimaryVariant">@color/lavender</item>

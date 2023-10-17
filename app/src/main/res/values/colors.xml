@@ -30,6 +30,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="lavender">#8692f7</color>
     <color name="grey">#ff424242</color>
+    <color name="logo_name">#848484</color>
+    <color name="logo_background">#03001C</color>
+    <color name="logo_background3">#5B8FB9</color>
+    <color name="logo_background4">#B6EADA</color>
+    <color name="logo_background2">#301E67</color>
+    <color name="main_blue">#1A35A2</color>
+    <color name="main_yellow">#ffde03</color>
+    <color name="main_yellow2">#FFC61B</color>
+
+
 
 
 

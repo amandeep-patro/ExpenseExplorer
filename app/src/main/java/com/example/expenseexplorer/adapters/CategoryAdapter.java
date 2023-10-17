@@ -21,6 +21,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     public interface CategoryClickListener{
         void onCategoryClicked(Category category);
+
+        void onCategoryLongClicked(Category category);
     }
 
     CategoryClickListener categoryClickListener;
@@ -47,6 +49,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         holder.itemView.setOnClickListener(c-> {
             categoryClickListener.onCategoryClicked(category);
+        });
+
+        holder.itemView.setOnLongClickListener(v -> {
+            categoryClickListener.onCategoryLongClicked(category);
+            return true;
         });
     }
 

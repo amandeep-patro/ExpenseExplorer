@@ -1,10 +1,12 @@
 package com.example.expenseexplorer.views.activites;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -19,6 +21,8 @@ import com.example.expenseexplorer.utils.Constants;
 import com.example.expenseexplorer.utils.Helper;
 import com.example.expenseexplorer.viewmodels.MainViewModel;
 import com.example.expenseexplorer.views.fragments.AddTransactionFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Calendar;
@@ -39,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     4 = Notes
      */
 
+    BottomNavigationItemView stats;
+    BottomNavigationItemView accounts;
+
 
     public MainViewModel viewModel;
 
@@ -47,6 +54,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+//        PackageManager packageManager = getPackageManager();
+//        Intent launchIntent = packageManager.getLaunchIntentForPackage("com.example.expenseexplorer");
+//
+//        if (launchIntent != null) {
+//            String targetActivity = launchIntent.getComponent().getClassName();
+//            String targetPackage = launchIntent.getComponent().getPackageName();
+//            Toast.makeText(MainActivity.this, targetActivity, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MainActivity.this, targetPackage, Toast.LENGTH_SHORT).show();
+//
+//            // Now you have the package name and activity name
+//            // Do something with targetActivity and targetPackage
+//        }
+
+//        Intent intent = new Intent();
+//        intent.setComponent(new ComponentName("com.example.firebaseauthentication", "com.example.firebaseauthentication.SignupActivity"));
+//        startActivity(intent);
 
 
         Intent intent = getIntent();
@@ -59,8 +84,11 @@ public class MainActivity extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "hohoho", Toast.LENGTH_SHORT).show();
+
                 // Start ProfileActivity and pass the data to it
-                Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
+                Intent profileIntent = new Intent();
+                profileIntent.setComponent(new ComponentName("com.example.firebaseauthentication", "com.example.firebaseauthentication.MainActivity"));
                 profileIntent.putExtra("name", name);
                 profileIntent.putExtra("email", email);
                 profileIntent.putExtra("username", username);
@@ -69,13 +97,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        stats = findViewById(R.id.stats);
+        stats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent categoryintent = new Intent(MainActivity.this, StatsActivity.class);
+                startActivity(categoryintent);
+                Toast.makeText(MainActivity.this, "stats", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        accounts = findViewById(R.id.accounts);
+        accounts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent accountintent = new Intent(MainActivity.this, AccountsActivity.class);
+                startActivity(accountintent);
+                Toast.makeText(MainActivity.this, "accounts", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
 
-
-        setSupportActionBar(binding.toolBar);
-        getSupportActionBar().setTitle("Transactions");
 
 
         Constants.setCategories();
@@ -88,8 +134,6 @@ public class MainActivity extends AppCompatActivity {
                 calendar.add(Calendar.DATE, 1);
             } else if(Constants.SELECTED_TAB == Constants.MONTHLY) {
                 calendar.add(Calendar.MONTH, 1);
-            } else if(Constants.SELECTED_TAB == Constants.NOTES) {
-                calendar.add(Calendar.DATE, 1);
             }
             updateDate();
         });
@@ -99,8 +143,6 @@ public class MainActivity extends AppCompatActivity {
                 calendar.add(Calendar.DATE, -1);
             } else if(Constants.SELECTED_TAB == Constants.MONTHLY) {
                 calendar.add(Calendar.MONTH, -1);
-            } else if(Constants.SELECTED_TAB == Constants.NOTES) {
-                calendar.add(Calendar.DATE, -1);
             }
             updateDate();
         });
@@ -123,7 +165,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(tab.getText().equals("Notes")) {
                     Constants.SELECTED_TAB = 4;
-                    updateDate();
+                    Intent intent = new Intent();
+                    intent.setComponent(new ComponentName("com.example.notes", "com.example.notes.MainActivity"));
+                    startActivity(intent);
                 }
             }
 
@@ -194,15 +238,10 @@ public class MainActivity extends AppCompatActivity {
             binding.currentDate.setText(Helper.formatDate(calendar.getTime()));
         } else if(Constants.SELECTED_TAB == Constants.MONTHLY) {
             binding.currentDate.setText(Helper.formatDateByMonth(calendar.getTime()));
-        } else if(Constants.SELECTED_TAB == Constants.NOTES) {
-            binding.currentDate.setText(Helper.formatDate(calendar.getTime()));
         }
         viewModel.getTransactions(calendar);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.top_menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+
+
 }

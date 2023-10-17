@@ -1,5 +1,7 @@
 package com.example.expenseexplorer.views.fragments;
 
+import static com.example.expenseexplorer.utils.Constants.removeCategory;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -110,6 +112,11 @@ public class AddTransactionFragment extends BottomSheetDialogFragment implements
                     transaction.setCategory(category.getCategoryName());
                     categoryDialog.dismiss();
                 }
+
+                @Override
+                public void onCategoryLongClicked(Category category) {
+                    removeCategory(category);
+                }
             });
             dialogBinding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
             dialogBinding.recyclerView.setAdapter(categoryAdapter);
@@ -133,6 +140,10 @@ public class AddTransactionFragment extends BottomSheetDialogFragment implements
                     binding.account.setText(account.getAccountName());
                     transaction.setAccount(account.getAccountName());
                     accountsDialog.dismiss();
+                }
+
+                @Override
+                public void onAccountLongClicked(Account account) {
                 }
             });
             dialogBinding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -21,12 +21,35 @@ public class Constants {
 
     public static void setCategories() {
         categories = new ArrayList<>();
-        categories.add(new Category("Salary", R.drawable.ic_salary, R.color.category1));
-        categories.add(new Category("Stationary", R.drawable.ic_business, R.color.category2));
-        categories.add(new Category("Investment", R.drawable.ic_investment, R.color.category3));
-        categories.add(new Category("Food", R.drawable.ic_loan, R.color.category4));
-        categories.add(new Category("Rent", R.drawable.ic_rent, R.color.category5));
-        categories.add(new Category("Other", R.drawable.ic_other, R.color.category6));
+        categories.add(new Category("Salary", R.drawable.ic_commonpayment, R.color.main_yellow2));
+        categories.add(new Category("Stationary", R.drawable.ic_commonpayment, R.color.main_yellow2));
+        categories.add(new Category("Investment", R.drawable.ic_commonpayment, R.color.main_yellow2));
+        categories.add(new Category("Food", R.drawable.ic_commonpayment, R.color.main_yellow2));
+        categories.add(new Category("Rent", R.drawable.ic_commonpayment, R.color.main_yellow2));
+        categories.add(new Category("Other", R.drawable.ic_commonpayment, R.color.main_yellow2));
+    }
+
+    // Add a new category
+    public static void addCategory(Category category) {
+        categories.add(category);
+    }
+
+    public static void removeCategory(Category category) {
+        categories.remove(category);
+    }
+
+    // Remove a category by name
+    public static void removeCategory(String categoryName) {
+        Category categoryToRemove = null;
+        for (Category category : categories) {
+            if (category.getCategoryName().equals(categoryName)) {
+                categoryToRemove = category;
+                break;
+            }
+        }
+        if (categoryToRemove != null) {
+            categories.remove(categoryToRemove);
+        }
     }
 
     public static Category getCategoryDetails(String categoryName) {
@@ -42,11 +65,11 @@ public class Constants {
     public static int getAccountsColor(String accountName) {
         switch (accountName) {
             case "Online":
-                return R.color.bank_color;
+                return R.color.category4;
             case "Cash":
-                return R.color.cash_color;
+                return R.color.category4;
             default:
-                return R.color.default_color;
+                return R.color.category4;
         }
     }
 

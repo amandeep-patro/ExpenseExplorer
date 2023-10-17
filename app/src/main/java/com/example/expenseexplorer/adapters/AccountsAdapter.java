@@ -21,6 +21,7 @@ public class AccountsAdapter extends RecyclerView.Adapter<AccountsAdapter.Accoun
 
     public interface AccountsClickListener {
         void onAccountSelected(Account account);
+        void onAccountLongClicked(Account account);
     }
 
     AccountsClickListener accountsClickListener;

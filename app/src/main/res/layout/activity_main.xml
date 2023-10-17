@@ -4,32 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/logo_background"
     tools:context=".views.activites.MainActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/orange"
+        android:background="@color/logo_background"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/white"/>
-
-    <Button
-        android:id="@+id/profileBtn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        app:layout_constraintEnd_toEndOf="@+id/toolBar" />
+        app:titleTextColor="@color/main_yellow" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/orange"
+        android:background="@color/logo_background"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="15dp"
@@ -50,8 +44,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="May 17, 2023"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textColor="@color/category4"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/nextDateBtn"
@@ -65,7 +60,7 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/orange"
+        android:background="@color/logo_background2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -121,7 +116,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Income" />
+                android:text="Income"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/incomeLbl"
@@ -130,7 +126,8 @@
                 android:layout_marginTop="3dp"
                 android:gravity="center"
                 android:text="0.0"
-                android:textColor="#4CAF50" />
+                android:textColor="#4CAF50"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -145,7 +142,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Expense" />
+                android:text="Expense"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/expenseLbl"
@@ -154,7 +152,8 @@
                 android:layout_marginTop="3dp"
                 android:gravity="center"
                 android:text="0.0"
-                android:textColor="#EF1000" />
+                android:textColor="#EF1000"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -169,7 +168,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Total" />
+                android:text="Total"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/totalLbl"
@@ -177,7 +177,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:gravity="center"
-                android:text="0.0" />
+                android:text="0.0"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
@@ -185,7 +187,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/orange"
+        android:background="@color/logo_background2"
         app:itemActiveIndicatorStyle="@style/App.CustomIndicator"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
@@ -203,16 +205,18 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:clickable="true"
-        app:backgroundTint="@color/orange"
+        app:backgroundTint="#FFC61B"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_plus"
-        app:tint="@color/white"/>
+        app:tint="@color/black" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactionsList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:paddingTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -232,4 +236,37 @@
         app:layout_constraintStart_toStartOf="@+id/transactionsList"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         app:srcCompat="@drawable/empty_state" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="92dp"
+        android:layout_height="63dp"
+        app:srcCompat="@drawable/logo_final" />
+
+    <TextView
+        android:id="@+id/logo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expense Explorer"
+        android:textColor="@color/logo_name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+        app:layout_constraintEnd_toEndOf="@+id/toolBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/profileBtn"
+        android:layout_width="40dp"
+        android:layout_height="33dp"
+        app:icon="@drawable/ic_menu"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintStart_toEndOf="@+id/logo_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.516" />
 </androidx.constraintlayout.widget.ConstraintLayout>
