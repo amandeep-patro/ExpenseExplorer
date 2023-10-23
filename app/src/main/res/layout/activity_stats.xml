@@ -1,0 +1,37 @@
+<!-- activity_stats.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/logo_background2"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".views.activites.StatsActivity">
+
+    <!-- Text input field for the custom category name -->
+    <EditText
+        android:id="@+id/etCustomCategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Enter custom category name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <!-- Add Category Button -->
+    <Button
+        android:id="@+id/btnAddCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="Add Category" />
+
+    <!-- RecyclerView to display categories -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
